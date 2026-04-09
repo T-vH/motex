@@ -26,7 +26,7 @@ Contains analysis and processing scripts used in this study.
 - Plot generation scripts (boxplots and distributions used in the paper)
 
 /Unity  
-Unity 2022.3 simulation environment used for the experiment. For downloading the files, please see dropbox Assets folder: **LINK** 
+Unity 2022.3 simulation environment used for the experiment. For downloading the files, please see dropbox Assets folder: https://www.dropbox.com/scl/fo/uzgtdbix7fvq5gtcyxnin/AMWpClgW-f2aXclGdKh1LhY?rlkey=m3rlmnir5xz725ssypio7vxht&st=f8aw2py6&dl=0
 - 16 hazard scenarios (C1, C2, L2, T7)
 - TTC calculation and triggering logic
 - NPC behaviour and NavMesh trajectories
