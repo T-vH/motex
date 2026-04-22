@@ -1,107 +1,28 @@
-Supplementary Material – MOTEX
+## MOTES
+Motorcyclists are among the most vulnerable road users, frequently hindered by late detection of hazards in complex urban traffic. We evaluated MOTEX, a helmet-integrated HMI delivering proactive directional cues through peripheral visual, auditory, and multimodal feedback. In a within-subject simulator study (N=13) in 16 scenarios derived from common accident typologies, no statistically significant effects were found for reaction time (p=0.33) or safety margins (p=0.42). However, visual and multimodal cues yielded numerically faster responses (574ms; SD=317 and 570ms; SD=360) compared to the control (747ms; SD=445). Approximately 70% of the participants reported increased situation awareness, alongside low cognitive workload and moderate trust - suggesting the system functions as a supportive "second pair of eyes" for spatial confirmation rather than prescriptive warning. These findings demonstrate the feasibility of non-intrusive, decoupled helmet-integrated safety systems as modular retrofits bridging human perception and automated hazard detection. 
 
-This repository contains the supplementary material for the paper:
+## Citation and usage of code
+If you use this work for academic work please cite the following paper:
 
-Heuvelen, T. van & Bazilinskyy, P. (2025).
-Evaluating a Helmet-Integrated Multimodal HMI for Proactive Urban Motorcyclist Safety.
-Proceedings of the 18th International Conference on Automotive User Interfaces and Interactive Vehicular Applications (AutoUI '26), Gothenburg, Sweden.
+> Van Heuvelen, T, & Bazilinskyy, P. (2026). A second pair of eyes: Evaluating a helmet-integrated multimodal HMI for proactive urban motorcyclist safety. Under review. Available at https://bazilinskyy.github.io/publications/vanheuvelen2026second
 
---------------------------------------------------
-STRUCTURE
---------------------------------------------------
+## Structure
+* anova.py: statistical analysis code (ANOVA and post-hoc tests).
+* rt_analysis.py: response time analysis code.
+* visualisation_event_centric.py: visualisation code for event-centric figures. Extra analysis not in the paper.
+* visualisation_modality.py: visualisation code for modality comparison figures. Extra analysis not in the paper.
+* visualisation_rt_ttc.py: visualisation code for response time and time-to-collision figures.
+* visualisation_survey.py: visualisation code for survey responses.
+* arduino.ino: Arduino code.
+* unity/: Unity project for the virtual environment.
 
-The repository is organised into four main components:
-
-/Arduino Code  
-Contains firmware for the physical MOTEX prototype.
-- MOTEX_Firmware.ino: Arduino Uno R3 firmware handling:
-  - AS5600 magnetic encoder input
-  - WS2812B LED output
-  - EJEAS-based audio triggering
-
-/Scripts  
-Contains analysis and processing scripts used in this study.
-- Data analysis scripts (Python)
-- Statistical analysis (e.g., RT, TTC, questionnaire aggregation)
-- Plot generation scripts (boxplots and distributions used in the paper)
-
-/Unity  
-Unity 2022.3 simulation environment used for the experiment. For downloading the files, please see dropbox Assets folder: https://www.dropbox.com/scl/fo/uzgtdbix7fvq5gtcyxnin/AMWpClgW-f2aXclGdKh1LhY?rlkey=m3rlmnir5xz725ssypio7vxht&st=f8aw2py6&dl=0
-- 16 hazard scenarios (C1, C2, L2, T7)
-- TTC calculation and triggering logic
-- NPC behaviour and NavMesh trajectories
-- First-person rider interface and feedback integration
-
-/User Test Data  
-Contains anonymised participant data.
-- Simulator logs (per participant and scenario)
-- Extracted behavioural metrics:
-  - Reaction Time (RT)
-  - Minimum Time-To-Collision (minTTC)
-  - Control inputs (steering, braking)
-- Questionnaire responses (post-test)
-- Demographic overview (age, gender, riding profile)
-
---------------------------------------------------
-EXPERIMENTAL DATA
---------------------------------------------------
-
-Participants:
-- N = 14 recruited
-- N = 13 included in analysis (1 excluded due to incomplete data)
-
-Data types:
-- Behavioural data from simulator logs
-- Questionnaire data (Likert-scale + open-ended responses)
-
-All data are anonymised.
-
---------------------------------------------------
-ANALYSIS
---------------------------------------------------
-
-The analysis pipeline includes:
-- Extraction of cue onset (TTC ≤ 2.0 s)
-- Computation of:
-  - RT_primary (braking or steering response)
-  - Minimum TTC until reaction
-- Statistical analysis:
-  - Friedman test (non-parametric repeated measures)
-  - Bonferroni-corrected post-hoc comparisons
-
-Plots generated:
-- Boxplots of RT and minTTC per modality
-- Questionnaire distributions
-
---------------------------------------------------
-HARDWARE (MOTEX PROTOTYPE)
---------------------------------------------------
-
-The physical prototype consists of:
-- Arduino Uno R3
-- AS5600 magnetic encoder
-- WS2812B LED strip (helmet-integrated)
-- EJEAS V6 intercom for audio feedback
-
-The system provides:
-- Peripheral visual cues
-- Spatialised auditory cues
-- Multimodal combinations
-
---------------------------------------------------
-NOTES
---------------------------------------------------
-
-- Unity version: 2022.3
-- Python version used for analysis: 3.11+
+## Notes
+- Find anonymised user data in the supplementary material of the paper.
+- Unity version: 2022.3.51f1.
+- Python version used for analysis: 3.11+.
 - Required Python packages are listed in requirements.txt
-
 - One participant (P08) was excluded due to incomplete data collection.
-
 - TTC values above 10 seconds and invalid values were filtered during preprocessing.
 
---------------------------------------------------
-CONTACT
---------------------------------------------------
-
+## Contact
 For questions regarding the dataset or implementation, please contact the authors.

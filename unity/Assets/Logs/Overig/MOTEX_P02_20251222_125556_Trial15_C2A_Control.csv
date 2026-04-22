@@ -1,0 +1,3 @@
+Time;Trial;Scene;Modality;PosX;PosZ;Speed;Steer;Throttle;Brake;TTC;PredCrashX;PredCrashZ;CrashAngle
+45.064;15;C2A;Control;-242.230;-80.120;0.17;0.022;0.000;0.000;26547.78;-231.640;-80.137;-7.7
+45.166;15;C2A;Control;-242.231;-80.120;0.05;0.022;0.000;0.000;21830.43;-242.231;-80.120;-7.7
