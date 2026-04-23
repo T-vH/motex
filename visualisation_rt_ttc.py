@@ -20,10 +20,11 @@ df["scenario"] = df["scenario_family"] + df["scenario_variant"]
 
 MOD_ORDER = ["Control", "Audio", "Visual", "Multimodal"]
 SCEN_ORDER = [
-    "C1A","C1B","C1C","C1D",
-    "C2A","C2B","C2C","C2D",
-    "T7A","T7B","T7C","T7D",
+    "C1A", "C1B", "C1C", "C1D",
+    "C2A", "C2B", "C2C", "C2D",
+    "T7A", "T7B", "T7C", "T7D",
 ]
+
 
 # =====================================================
 # GENERIC 4×4 PLOTTING FUNCTION
@@ -79,7 +80,6 @@ def plot_4x4(
         ax.set_xticks(range(1, len(labels) + 1))
         ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=16)
 
-
         if ylims:
             ax.set_ylim(*ylims)
 
@@ -98,6 +98,7 @@ def plot_4x4(
 
     print(f"Saved: {out}")
 
+
 # =====================================================
 # FIGURE 1 — MINIMUM TTC
 # =====================================================
@@ -114,14 +115,14 @@ plot_4x4(
 # =====================================================
 # FIGURE 2 — REACTION TIME
 # =====================================================
-df_rt = df[df["RT_primary_ms"].notna()]
+df_rt = df[df["RT_ms"].notna()]
 
 plot_4x4(
     df=df_rt,
-    value_col="RT_primary_ms",
-    ylabel="Reaction Time (ms)",
+    value_col="RT_ms",
+    ylabel="Reaction time (ms)",
     out_name="RT_4x4_by_scenario.png",
-    ylims=(0, df_rt["RT_primary_ms"].quantile(0.98))
+    ylims=(0, df_rt["RT_ms"].quantile(0.98))
 )
 
 print("\n✔ 4×4 TTC and RT figures generated successfully.")

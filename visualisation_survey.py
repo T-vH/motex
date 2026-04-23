@@ -5,7 +5,10 @@ from pathlib import Path
 # =========================
 # CONFIG
 # =========================
-file_path = Path("data_survey.csv")  # <-- update filename
+file_path = Path("data_survey.csv")
+OUTPUT_DIR = Path("figures")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
 participant_id_col = "Participant Test Number"
 
 likert_order = [
@@ -55,11 +58,13 @@ for c in df.columns:
 if participant_id_col in df.columns:
     df = df[df[participant_id_col] != "P08"]
 
+
 # =========================
 # HELPER
 # =========================
 def normalize_text(s: str) -> str:
     return " ".join(str(s).replace("\xa0", " ").split()).lower()
+
 
 def find_col_contains(*keywords):
     normalized_cols = {c: normalize_text(c) for c in df.columns}
@@ -70,11 +75,13 @@ def find_col_contains(*keywords):
             return c
     return None
 
+
 def clean_likert(series: pd.Series) -> pd.Series:
     s = series.astype(str).str.strip()
     s = s.replace(likert_map)
     s = s.where(s.isin(likert_order))
     return s
+
 
 # =========================
 # SELECT QUESTIONS
@@ -175,5 +182,6 @@ for ax, (title, col) in zip(axes, flat_titles.items()):
     ax.set_title(title, fontsize=11, loc="left", pad=6)
 
 plt.tight_layout(pad=1.0)
-plt.savefig("questionnaire_collage_clean.png", dpi=300, bbox_inches="tight")
+out = OUTPUT_DIR / "questionnaire.png"
+plt.savefig(out, dpi=300, bbox_inches="tight")
 plt.show()

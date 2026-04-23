@@ -4,7 +4,7 @@ from statsmodels.stats.anova import AnovaRM
 # =====================================================
 # CONFIG
 # =====================================================
-MASTER_CSV = "data.csv"
+MASTER_CSV = "data_simulator.csv"
 MODALITIES = ["Visual", "Audio", "Multimodal"]
 
 

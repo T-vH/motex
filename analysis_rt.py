@@ -20,7 +20,7 @@ df = pd.read_csv(MASTER_CSV)
 
 df_valid = df[
     df["modality"].isin(MODALITIES) &
-    df["RT_primary_ms"].notna() &
+    df["RT_ms"].notna() &
     df["RT_source"].isin(["brake", "steer"])
 ].copy()
 
@@ -77,7 +77,7 @@ print("\n================ RT VARIABILITY ====================")
 # ---------- Within-participant SD ----------
 rt_sd = (
     df_valid
-    .groupby(["participant", "modality"])["RT_primary_ms"]
+    .groupby(["participant", "modality"])["RT_ms"]
     .std()
     .reset_index(name="RT_sd")
 )

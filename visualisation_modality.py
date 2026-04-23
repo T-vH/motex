@@ -66,10 +66,14 @@ def parse_scenario(name):
 
 def parse_modality(name):
     n = name.lower()
-    if "control" in n: return "control"
-    if "audio" in n: return "audio"
-    if "visual" in n: return "visual"
-    if "multi" in n: return "multimodal"
+    if "control" in n:
+        return "control"
+    if "audio" in n:
+        return "audio"
+    if "visual" in n:
+        return "visual"
+    if "multi" in n:
+        return "multimodal"
     return None
 
 

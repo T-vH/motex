@@ -192,7 +192,6 @@ def plot_scenario(trials, family, variant):
 
     # ---- FIX WORLD LIMITS (CRITICAL) ----
     Z_VIS = Z_SCALE  # set Z_SCALE = 2.0 at top for “2× bigger”
-    zs = np.concatenate([t[1].values * Z_VIS for t in trials])
 
     # ---- SPEED NORMALIZATION ----
     all_speeds = np.concatenate([t[2].values for t in trials])
