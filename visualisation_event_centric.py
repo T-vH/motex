@@ -261,6 +261,11 @@ if __name__ == "__main__":
                 continue
 
             df = robust_read_csv(csv)
+
+            # Exclude participant who dropped out
+            if "participant" in df.columns:
+                df = df[df["participant"] != "P08"]
+
             res = extract_trial(df, family, variant)
             if res is None:
                 continue

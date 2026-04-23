@@ -13,6 +13,10 @@ MODALITIES = ["Visual", "Audio", "Multimodal"]
 # =====================================================
 df = pd.read_csv(MASTER_CSV)
 
+# Exclude participant who dropped out
+if "participant" in df.columns:
+    df = df[df["participant"] != "P08"]
+
 print("\nLoaded rows:", len(df))
 print("Participants:", df["participant"].unique())
 
@@ -25,7 +29,7 @@ print("\n================ RT ANALYSIS =================")
 df_rt = df[
     df["modality"].isin(MODALITIES) &
     (df["has_cue"] == True) &
-    df["RT_primary_ms"].notna()
+    df["RT_ms"].notna()
 ].copy()
 
 # ---- Participant × modality counts ----
@@ -49,7 +53,7 @@ df_rt_balanced = df_rt[
 df_rt_agg = (
     df_rt_balanced
     .groupby(["participant", "modality"], as_index=False)
-    .agg(RT_primary_ms=("RT_primary_ms", "mean"))  # or "median"
+    .agg(RT_primary_ms=("RT_ms", "mean"))  # or "median"
 )
 
 # ---- Run RM-ANOVA ----

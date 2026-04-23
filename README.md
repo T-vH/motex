@@ -12,12 +12,12 @@ If you use this work for academic work please cite the following paper:
 * analysis_anova.py: statistical analysis code (ANOVA and post-hoc tests).
 * analysis_rt.py: response time analysis code.
 * analysis.py: calculate parameters based on raw data and output boxplots per modality.
+* arduino.ino: Arduino code.
+* unity/: Unity project for the virtual environment.
 * visualisation_event_centric.py: visualisation code for event-centric figures. Extra analysis not in the paper.
 * visualisation_modality.py: visualisation code for modality comparison figures. Extra analysis not in the paper.
 * visualisation_rt_ttc.py: visualisation code for response time and time-to-collision figures.
 * visualisation_survey.py: visualisation code for survey responses.
-* arduino.ino: Arduino code.
-* unity/: Unity project for the virtual environment.
 
 ## Notes
 - Find anonymised user data in the supplementary material of the paper.

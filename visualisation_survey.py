@@ -39,8 +39,8 @@ likert_map = {
 # =========================
 df = pd.read_csv(
     file_path,
-    encoding="utf-8",     # try "latin1" if this fails
-    sep=",",              # try ";" if your CSV uses semicolons
+    encoding="utf-8",
+    sep=",",
     engine="python"
 )
 

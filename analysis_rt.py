@@ -18,6 +18,10 @@ MODALITIES = ["Visual", "Audio", "Multimodal"]
 # =====================================================
 df = pd.read_csv(MASTER_CSV)
 
+# Exclude participant who dropped out
+if "participant" in df.columns:
+    df = df[df["participant"] != "P08"]
+
 df_valid = df[
     df["modality"].isin(MODALITIES) &
     df["RT_ms"].notna() &

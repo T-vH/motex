@@ -15,6 +15,10 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # =====================================================
 df = pd.read_csv(DATA_PATH)
 
+# Exclude participant who dropped out
+if "participant" in df.columns:
+    df = df[df["participant"] != "P08"]
+
 # Construct scenario label
 df["scenario"] = df["scenario_family"] + df["scenario_variant"]
 
@@ -24,6 +28,10 @@ SCEN_ORDER = [
     "C2A", "C2B", "C2C", "C2D",
     "T7A", "T7B", "T7C", "T7D",
 ]
+
+# Exclude participant who dropped out
+if "participant" in df.columns:
+    df = df[df["participant"] != "P08"]
 
 
 # =====================================================

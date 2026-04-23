@@ -213,6 +213,11 @@ for folder in DATASET_FOLDERS:
             continue
 
         df = robust_read_csv(csv)
+
+        # Exclude participant who dropped out
+        if "participant" in df.columns:
+            df = df[df["participant"] != "P08"]
+    
         tr = extract_trial(df, fam, var)
         if tr is None:
             continue
